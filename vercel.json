@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/*.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api.js",
+      "dest": "/api/api.js",
+      "headers": {
+        "Cache-Control": "public, max-age=3600",
+        "Content-Type": "application/vnd.apple.mpegurl"
+      }
+    },
+	{
+      "src": "/playlist.m3u",
+      "dest": "/api/watchM3u.js"
+    }
+  ]
+}
