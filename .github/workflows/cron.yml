@@ -1,0 +1,13 @@
+name: Auto call Vercel API every 10 minutes
+
+on:
+  schedule:
+    - cron: "*/10 * * * *" # every 10 minutes
+  workflow_dispatch:
+
+jobs:
+  ping-vercel:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Vercel API
+        run: curl -s https://artl-m3u.vercel.app/playlist.m3u
